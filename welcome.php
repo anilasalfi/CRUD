@@ -30,36 +30,36 @@
 
 			while ($data=mysqli_fetch_array($table)){
 
+				?>
+
+				<div class="card-header bg-info">
+					<h2 class="text-white text-center">  Welcome <?php echo $data['firstname']; echo $data['lastname']; ?>! </h2>
+				</div><br>
+				<?php 
+			}
 			?>
+			<p> You can choose to perform the following operations in your database:</p>
 
-			<div class="card-header bg-info">
-				<h2 class="text-white text-center">  Welcome <?php echo $data['firstname']; echo $data['lastname']; ?>! </h2>
-			</div><br>
-			<?php 
-		}
-		?>
-<p> You can choose to perform the following operations in your database:</p>
+			<table class="table table-borderless text-center">
 
-		<table class="table table-borderless text-center">
+				<tr>
 
-			<tr>
+					<th> Insert New User </th>
+					<th><button class="btn btn-primary"><a href="insert.php" class="text-white"> Insert </a> </button></th>
+					
+				</tr>
+				<br>
+				<tr>
 
-			<th> Insert New User </th>
-			<th><button class="btn btn-primary"><a href="insert.php" class="text-white"> Insert </a> </button></th>
-			
-			</tr>
-			<br>
-			<tr>
+					<th> View Current Record</th>
+					<th><button class="btn btn-primary"><a href="display.php" class="text-white"> View Database </a> </button></th>
+					
+				</tr>	
 
-			<th> View Current Record</th>
-			<th><button class="btn btn-primary"><a href="display.php" class="text-white"> View Database </a> </button></th>
-			
-			</tr>	
+			</table>
 
-		</table>
-
+		</div>
 	</div>
-</div>
 
 </body>
 

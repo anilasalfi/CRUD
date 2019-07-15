@@ -5,13 +5,13 @@ include 'connect.php';
 $fnameErr = $lnameErr = $emailErr = $contactErr = "";
 $count = 0;
 
-	
+
 if(isset($_POST['done'])){
 
-if (isset($_GET['id'])) 
-{ 
-    $id = $_GET['id']; 
-}
+	if (isset($_GET['id'])) 
+	{ 
+		$id = $_GET['id']; 
+	}
 
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		if (empty($_POST['first_name'])) {
@@ -51,8 +51,8 @@ if (isset($_GET['id']))
 		$count = 0;
 
 		header('location:display.php');
-	
-}
+		
+	}
 }
 
 ?>
@@ -75,7 +75,7 @@ if (isset($_GET['id']))
 
 	<div class="col-lg-5 m-auto">
 
-		<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+		<form method="post">
 
 			<div class="card"> 
 
@@ -86,20 +86,19 @@ if (isset($_GET['id']))
 				</div><br>
 
 
-				<label>First Name</label>
-				<span class="error text-danger">* <?php echo $fnameErr;?> </span>
+				<label>First Name <span class="text-danger">* <?php echo $fnameErr;?> </span> </label>
 				<input type="text" name="first_name" class="form-control">
 				<br>
-				Last Name
-				<span class="error text-danger">* <?php echo $lnameErr;?> </span>
+
+				<label>Last Name <span class="text-danger">* <?php echo $lnameErr;?> </span> </label>
 				<input type="text" name="last_name" class="form-control">
 				<br>
-				Email Address
-				<span class="error text-danger">* <?php echo $emailErr;?> </span>
+
+				<label>Email Address <span class="text-danger">* <?php echo $emailErr;?> </span> </label>
 				<input type="text" name="email" class="form-control">
 				<br>
-				Contact no.
-				<span class="error text-danger">* <?php echo $contactErr;?> </span>
+
+				<label>Contact no. <span class="text-danger">* <?php echo $contactErr;?> </span></label>
 				<input type="text" name="contact_no" class="form-control">
 				<br><br>
 

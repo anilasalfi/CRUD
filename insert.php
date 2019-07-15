@@ -2,8 +2,8 @@
 
 include 'connect.php';
 
-	$fnameErr = $lnameErr = $emailErr = $contactErr = "";
-	$count = 0;
+$fnameErr = $lnameErr = $emailErr = $contactErr = "";
+$count = 0;
 
 
 if(isset($_POST['done'])){
@@ -50,7 +50,7 @@ if(isset($_POST['done'])){
 		$count = 0;
 
 		header('location: display.php');
-}
+	}
 
 
 }

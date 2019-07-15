@@ -41,26 +41,26 @@
 
 				<tr>
 
-				<?php 
+					<?php 
 
-				include 'connect.php';
+					include 'connect.php';
 
-				$query = "SELECT * FROM `crudtable`";
+					$query = "SELECT * FROM `crudtable`";
 
-				$table = mysqli_query($conn,$query);
+					$table = mysqli_query($conn,$query);
 
-				while ($data=mysqli_fetch_array($table)){
+					while ($data=mysqli_fetch_array($table)){
 
-					?>
+						?>
 
-					<td><?php echo $data['id']; ?> </td>
-					<td><?php echo $data['first_name']; ?> </td>
-					<td><?php echo $data['last_name']; ?> </td>
-					<td><?php echo $data['email']; ?> </td>
-					<td><?php echo $data['contact_no']; ?> </td>
-					<td><?php echo $data['date']; ?> </td>
-					<td><button class="btn btn-primary"> <a href="update.php?id=<?php echo $data['id'];?>" class="text-white"> Update </a> </button> </td>
-					<td><button class="btn btn-danger"> <a href="delete.php?id=<?php echo $data['id'];?>" class="text-white"> Delete </a></button> </td>
+						<td><?php echo $data['id']; ?> </td>
+						<td><?php echo $data['first_name']; ?> </td>
+						<td><?php echo $data['last_name']; ?> </td>
+						<td><?php echo $data['email']; ?> </td>
+						<td><?php echo $data['contact_no']; ?> </td>
+						<td><?php echo $data['date']; ?> </td>
+						<td><button class="btn btn-primary"> <a href="update.php?id=<?php echo $data['id'];?>" class="text-white"> Update </a> </button> </td>
+						<td><button class="btn btn-danger"> <a href="delete.php?id=<?php echo $data['id'];?>" class="text-white"> Delete </a></button> </td>
 					</tr>
 
 
@@ -68,7 +68,7 @@
 				}
 				?>
 
-			
+
 
 			</table>
 
@@ -79,14 +79,18 @@
 
 		</div>
 	</div>
-
-	<script type="text/javascript">
- 
- $(document).ready(function(){
- $('#tabledata').DataTable();
- }) 
- 
- </script>
+<!---
+	<script>
+		function info() {
+			var x = confirm("Are you sure you want to delete this entry?");
+			if (x==true) {
+				var val = '<?php echo $data['id']; ?>';
+				window.open('http://localhost/crud/delete.php?id='+val);
+			} else {
+				return false;
+			}
+		}
+	</script> --->
 
 </body>
 

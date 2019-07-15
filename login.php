@@ -25,21 +25,21 @@ if(isset($_POST['done'])) {
 	}
 }
 
-	if($count==2){
-		$username=$_POST['username'];
-		$password =$_POST['password'];
-		$sql ="SELECT * from login WHERE username = '$username' and password='$password' LIMIT 1";
-		$result = $conn->query($sql);
-		if($result->num_rows>0){
+if($count==2){
+	$username=$_POST['username'];
+	$password =$_POST['password'];
+	$sql ="SELECT * from login WHERE username = '$username' and password='$password' LIMIT 1";
+	$result = $conn->query($sql);
+	if($result->num_rows>0){
 			//echo("You have successfully logged in");
-			header("Location: welcome.php");
-			exit();
-		}else{
-			header("Location: error.php");
-			exit();
-		}
-		$count=0;
+		header("Location: welcome.php");
+		exit();
+	}else{
+		header("Location: error.php");
+		exit();
 	}
+	$count=0;
+}
 ?>
 
 <!DOCTYPE html>
@@ -57,7 +57,7 @@ if(isset($_POST['done'])) {
 </head>
 
 <body>
-<div class="col-lg-5 m-auto">
+	<div class="col-lg-5 m-auto">
 
 		<form method="post" action="login.php">
 

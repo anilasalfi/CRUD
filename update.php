@@ -2,16 +2,21 @@
 
 include 'connect.php';
 
-$fnameErr = $lnameErr = $emailErr = $contactErr = "";
+$fnameErr = $lnameErr = $emailErr = $contactErr = $q = $t = $d = "";
 $count = 0;
+
+if (isset($_GET['id'])) 
+	{ 
+		$id = $_GET['id']; 
+		$q = "SELECT `first_name`, `last_name`, `email`, `contact_no` FROM `crudtable` WHERE id = $id";
+		$t = mysqli_query($conn,$q);
+		$d = mysqli_fetch_array($t);
+	}
 
 
 if(isset($_POST['done'])){
 
-	if (isset($_GET['id'])) 
-	{ 
-		$id = $_GET['id']; 
-	}
+
 
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		if (empty($_POST['first_name'])) {
@@ -87,19 +92,19 @@ if(isset($_POST['done'])){
 
 
 				<label>First Name <span class="text-danger">* <?php echo $fnameErr;?> </span> </label>
-				<input type="text" name="first_name" class="form-control">
+				<input type="text" name="first_name" class="form-control" value="<?php echo $d['first_name']; ?>">
 				<br>
 
 				<label>Last Name <span class="text-danger">* <?php echo $lnameErr;?> </span> </label>
-				<input type="text" name="last_name" class="form-control">
+				<input type="text" name="last_name" class="form-control" value="<?php echo $d['last_name']; ?>">
 				<br>
 
 				<label>Email Address <span class="text-danger">* <?php echo $emailErr;?> </span> </label>
-				<input type="text" name="email" class="form-control">
+				<input type="text" name="email" class="form-control" value="<?php echo $d['email']; ?>">
 				<br>
 
 				<label>Contact no. <span class="text-danger">* <?php echo $contactErr;?> </span></label>
-				<input type="text" name="contact_no" class="form-control">
+				<input type="text" name="contact_no" class="form-control" value="<?php echo $d['contact_no']; ?>">
 				<br><br>
 
 				<button name="done" type="submit" class="btn btn-success">Submit</button>
